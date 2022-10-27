@@ -1,38 +1,35 @@
-/**
- * This is a basic starting point of the assignment
- * Modify the code according to your own needs and requirements
- */
+const express = require('express')
+const mongoose = require("mongoose");
 
-//const express = require('express')
-import express from 'express'; // <-- Module Style import
-import bodyParser from 'body-parser';
 
-// Importing user route
-import router from './routes/users.js';
-// const router = require('router')
-
-// const bodyParser = require('body-parser')
-
+const bodyParser = require('body-parser')
+const addplaceRoute= require('./routes/AddPlaceRoute')
 const app = express()
-const port = 3001
+
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+  });
 
 app.use(bodyParser.json())
+
+
 // Adding a Router
-app.use('/users', router);
+app.use('/host', addplaceRoute);
 
-app.get('/', (req, res) => {
-    res.send('Hello Universe!')
-})
 
-app.get('/todos', (req, res) => {
-    res.send('A list of todo items will be returned')
-})
-
-app.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('Posting a Request')
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+mongoose
+  .connect(
+    // "mongodb+srv://sadia:123@vacay-database.o9kjjlr.mongodb.net/places?retryWrites=true&w=majority"
+  "mongodb://localhost:27017/cafedb"
+    )
+  .then(() => {
+    app.listen(8000);
+    console.log("listening on port 8000")
+  })
+  .catch((err) => {
+    console.log(err);
+  });

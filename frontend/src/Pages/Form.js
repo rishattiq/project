@@ -1,22 +1,52 @@
 import React,{useState} from 'react'
-
 import './Form.css';
+import axios from 'axios';
+
+
 export default function Form() {
-
-  const [placename, setPlacename] = useState('')
+  const [Files, setfile] = useState('')
+  const [placename,setPlacename] = useState('')
   const [Price, setPrice] = useState('')
-  
- const onplacenameHandler=(event)=>{
-      let placen= event.target.value;
-      console.log(placen)
-      setPlacename(placename);
+  const [Rooms, setRooms] = useState('')
+  let arr=[Rooms];
+  const handleClear = event =>{
+    setRooms(event.target.value);
+  }
+ const handleClick = () =>{
+  setRooms('');
+ }
+ 
+const addPlace = () =>{
+  alert(Price);
+  axios.post('http://localhost:8000/host/addplace',{
+    placename,Price,imageurl:'42873982',Rooms,
+  }).then(function(response){
+    return response;
+  }).catch(function(error){
+    return error;
+  });
+}
+
+  const onplacefileHandler=(event)=>{
+    let files= event.target.file;
+    console.log(files);
+    setfile(Files);
+   console.log("fileadded");
+}
+
+  const onplacenameHandler=(event)=>{
+      setPlacename(event.target.value);
   }
 
- const onpriceHandler=(event)=>{
-    let pric=event.target.value;
-    console.log(pric)
-    setPrice(Price);
+  const onpriceHandler=(event)=>{
+
+    setPrice(event.target.value);
   }
+
+  const onroomHandler=(event)=>{
+   setRooms(event.target.value);
+  }
+  
 
   return (
     <> 
@@ -27,13 +57,12 @@ export default function Form() {
       <div className='divider'> 
          <div className='field'>
               <label>Add Place</label>
-              {//<button type="button" class="btn-warning" > Upload File
+              {
               }
-              {//<i className="fa fa-upload"></i> Upload File
+              {
               }
-               <input type="file" class="btn-warning"/>
-             
-              
+               <input type="file" onChange={onplacefileHandler} class="btn-warning"/> 
+
           </div>
 
           <div >
@@ -41,18 +70,12 @@ export default function Form() {
            <input type="place" name="place" placeholder="place" onChange={onplacenameHandler} className='field1'/>
          </div>
      </div>
-
       
       <div className='ui-form'>
         
          <div className='container' >
             <label >No of Rooms</label>
-            <select className='field1'>
-               <option className='rooms' value="">No of Rooms</option>
-               <option value="">1-5</option>
-               <option value="">6-10</option>
-               <option value="">11-20</option>
-            </select>
+            <input type="No of Rooms" name="Rooms" placeholder="Rooms" onChange={onroomHandler} className='field1'/>
         
                <label>Price</label>
                <input type="Price" name="price" placeholder="price" onChange={onpriceHandler} className='field1'/>
@@ -60,13 +83,13 @@ export default function Form() {
        </div>
          
          <div className='Button'>
-             <button className='ui button transparent'>Clear</button>
-             <button className='ui button blue'>Submit</button>
+             <button className='ui button transparent' onClick={handleClick}>Clear</button>
+             <button className='ui button blue' onClick={addPlace}>Submit</button>
              
          </div>
         </form>
        </div>
      </>
-    
   )
+  
 }
