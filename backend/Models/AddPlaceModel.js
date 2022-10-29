@@ -10,19 +10,24 @@ const placeSchema=new Schema({
 
    price:{
     type:String,
-    required:false,
+    required:true,
   } ,
 
   imageurl:{
     type:String,
-    required:false,
+    required:true,
   } ,
 
     numberofrooms:{
     type:String,
-    required:false,
+    required:true,
   } ,
+  description:{
+    type:String,
+    required:false,
+  } , 
+
 });
-const places = mongoose.model('places',placeSchema);
+const places = mongoose.model('place',placeSchema);
 
 module.exports= places;

@@ -1,26 +1,28 @@
-const places = require("../Models/AddPlaceModel");
 const placesmodel=require("../Models/AddPlaceModel");
 
 exports.getPlace = (req,res) => res.send("this is your data");
 
 exports.createPlace = async(req,res)=>{
     
-   const {placename,price,imageurl,numberofrooms} = req.body;
-   console.log(placename,price);
-   const newPlace = new places({
-    placename,price,imageurl,numberofrooms
-   });
-   
-    // let places=new placesmodel({
-    //     placename:req.body.placename,
-    //     price:req.body.price,
-    //     imageurl:req.body.imageurl,
-    //     numberofrooms:req.body.numberofrooms,
-    // })
+    const placename=req.body.placename
+    const price=req.body.price
+    const imageurl=req.body.imageurl
+    const numberofrooms=req.body.numberofrooms
+    const description=req.body.description
 
-    newPlace.save().then(result=>{
+    let places=new placesmodel({
+        placename,
+        price,
+        imageurl,
+        numberofrooms,
+        description
+    })
+
+    
+
+    places.save().then(result=>{
         console.log('Posted');
-        res.status(200).send("done added"+result)
+        res.status(200).json("done added"+result)
     })
     .catch(err=>{
         console.log(err);
@@ -28,14 +30,17 @@ exports.createPlace = async(req,res)=>{
 }
 
 exports.allPlaces=(req,res)=> {
-      places.find(function(err,result){
-        if(err) return next(err);
-        res.send(result);
-      });
+    placesmodel.find().then(place=>{
+        res.status(200).json({
+            "place":place
+        })
+    }).catch(err=>{
+        console.log(err);
+    })
 };
 
 exports.placeInfo=(req,res)=> {
-    places.findById(req.params.id, function(err,place){
+    placesmodel.findById(req.params.id, function(err,place){
      if(err) return next(err);
      res.send(place);
     });
@@ -43,14 +48,14 @@ exports.placeInfo=(req,res)=> {
 
 
 exports.deletePlace=(req,res)=> {
-    places.findByIdAndRemove(req.params.id, function(err,place){
+    placesmodel.findByIdAndRemove(req.params.id, function(err,place){
      if(err) return next(err);
      res.send("Data Deleted Successfully");
     });
 };
 
 exports.updatePlace=(req,res)=> {
-    places.findByIdAndUpdate(req.params.id,req.body,{ new: true}, function(err,place){
+    placesmodel.findByIdAndUpdate(req.params.id,req.body,{ new: true}, function(err,place){
      if(err) return next(err);
      res.send("Data Updated Successfully");
     });

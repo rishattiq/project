@@ -23,8 +23,7 @@ app.use('/host', addplaceRoute);
 
 mongoose
   .connect(
-    // "mongodb+srv://sadia:123@vacay-database.o9kjjlr.mongodb.net/places?retryWrites=true&w=majority"
-  "mongodb://localhost:27017/cafedb"
+    "mongodb+srv://sadia:123@vacay.fw2ph4w.mongodb.net/places?retryWrites=true&w=majority"
     )
   .then(() => {
     app.listen(8000);
