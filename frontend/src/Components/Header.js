@@ -6,6 +6,7 @@ import {
 export default function Header() {
   
   return (
+    <div data-testid="comps" className='header'>
     <header class="main-header">
         <div>
          <img className='logo' src="./images/logo.jpg" alt=""/>
@@ -22,5 +23,6 @@ export default function Header() {
             </ul>
         </nav>
     </header>
+    </div>
   )
 }

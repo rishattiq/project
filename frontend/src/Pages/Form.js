@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./Form.css";
+import {
+  Link
+} from "react-router-dom";
 
 export default function Form() {
+  
   const [placename, setPlacename] = useState("");
   const [price, setPrice] = useState("");
   const [numberofrooms, setNumberofrooms] = useState("");
   const [imageurl, setImageurl] = useState("");
+  const [description, setdescription] = useState("");
+
+ 
 
   const addPlace = (e) => {
     e.preventDefault();
@@ -15,6 +22,7 @@ export default function Form() {
       numberofrooms,
       price,
       imageurl,
+      description
     };
     
     fetch("http://localhost:8000/host/addplace", {
@@ -36,7 +44,11 @@ export default function Form() {
       setNumberofrooms('')
       setPlacename('')
       setPrice('')
+      setdescription('')
   };
+
+
+
 
   const onplacenameHandler = (event) => {
     setPlacename(event.target.value);
@@ -44,6 +56,10 @@ export default function Form() {
 
   const onimageurlHandler = (event) => {
     setImageurl(event.target.value);
+  };
+
+  const ondescriptionHandler = (event) => {
+    setdescription(event.target.value);
   };
 
   const onpriceHandler = (event) => {
@@ -54,10 +70,11 @@ export default function Form() {
     setNumberofrooms(event.target.value);
   };
 
+  
   return (
     <>
-      <div className="container">
-        <form className="form" onSubmit={addPlace}>
+      <div data-testid="comps" className="container">
+        <form className="form" >
           <h1>My Form</h1>
 
           <div className="divider">
@@ -74,20 +91,31 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="field1">PlaceName</label>
-              <input
-                type="place"
-                name="place"
-                placeholder="place"
-                value={placename}
-                onChange={onplacenameHandler}
-                className="field1"
+              <label className="field3">Description</label>
+              <input className="field2"
+                type="description"
+                name="description"
+                placeholder="description"
+                value={description}
+                onChange={ondescriptionHandler}
               />
             </div>
           </div>
 
           <div className="ui-form">
             <div className="container">
+
+
+            <label>PlaceName</label>
+              <input
+                type="PlaceName"
+                name="PlaceName"
+                placeholder="PlaceName"
+                onChange={onplacenameHandler}
+                value={placename}
+                className="field1"
+              />
+
               <label>Number of Rooms</label>
               <input
                 type="No of Rooms"
@@ -112,9 +140,11 @@ export default function Form() {
 
           <div className="Button">
             {/* <button className='ui button blue' onClick={addPlace}>Submit</button> */}
-            <button className="ui button blue" type="submit">
-              Submit
+            <Link to="/HostDashboard">
+            <button className=" fluid ui button blue" type="submit" onClick={addPlace}>
+            Submit
             </button>
+            </Link>
           </div>
         </form>
       </div>

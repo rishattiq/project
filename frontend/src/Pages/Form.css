@@ -4,8 +4,9 @@
 }
 
 body{
-  background-image: url(swe.jpg);
+  background-image: url(swe1.jpg);
   background-position:bottom;
+
   /*background: rgb(2,0,36);
   background: radial-gradient(circle,rgba(2,0,36,1) 0%,rgba(0,212,255,1) 0%,rgba(9,9,121,1) 100%);*/
 }
@@ -28,7 +29,6 @@ body{
   position:absolute;
   left:0%;
   top:0%;
- 
   opacity:100;
 }
 
@@ -53,8 +53,8 @@ background-color:white;
 font-weight: bold;
 font-size: medium;
 width: 70%;
-height:50%;
-border:2px solid rgb(79, 7, 7);
+height:45%;
+border:5px solid black;
 padding:50px;
 margin-top: 100px;
 border-radius:5px;
@@ -63,26 +63,41 @@ opacity:0.9 ;
 
 .divider{
   border:solid rgb(12, 71, 137);
-  width:400px;
-  margin-top: 40px;
+  width:440px;
+  height:400px;
+  margin-top: 30px;
   position: absolute;
 }
 
 .ui-form{
     border:none;
     width:400px;
-    margin-top: 55px;
+    margin-top: 0px;
     margin-left:450px;
 }
 
 .field{
    font-weight: bold;
     border: none;
-    margin:20px;
+    margin-top:50px;
     margin-left: 8px;
     padding:20px;
 }
 
+.field3{
+  margin-left:7%;
+}
+
+.field2{
+  font-weight: bold;
+  font-size: medium;
+  margin:20px;
+  margin-top: 30px;
+  margin-left:20%;
+  padding:50px;
+  width: 300px;
+  border-radius:0.8em;
+}
 .field1{
   font-weight: bold;
   font-size: medium;
@@ -90,14 +105,17 @@ opacity:0.9 ;
   margin-left: 15px;
   padding:20px;
   width: 200px;
+  border-radius:0.8em;
 }
 .rooms{
   font-weight: lighter;
 }
 
 .Button{
+    color:black;
     margin-top: 30px;
     margin-left:630px;
-}
+    width:15%;}
+
 
 

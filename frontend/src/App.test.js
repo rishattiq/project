@@ -1,8 +1,31 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Collection from './Pages/Collection';
+import HostDashboard from './Pages/HostDashboard';
+import Form from './Pages/Form';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+test('Form Page',()=>{
+  render(<Form/>);
+  const linkElement = screen.getByTestId("comps");
   expect(linkElement).toBeInTheDocument();
 });
+
+test('Header Page',()=>{
+  render(<Headers/>);
+  const linkElement = screen.getByTestId("comps");
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('Collection page',()=>{
+  render(<Collection/>);
+  const linkElement = screen.getByTestId("comps");
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('HostDashboard Page',()=>{
+  render(<HostDashboard/>);
+  const linkElement = screen.getByTestId("comps");
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+
