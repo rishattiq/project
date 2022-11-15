@@ -14,7 +14,8 @@ export default function HostDashboard() {
  },[]);
   return (
     <>
-    <div data-testid="comps" className='HostDashboard'>
+    <div data-testid="comps" 
+    className='HostDashboard'>
     <Header/>
     </div>
    </>
