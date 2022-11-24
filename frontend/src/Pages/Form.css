@@ -4,8 +4,8 @@
 }
 
 body{
-  background-image: url(swe1.jpg);
-  background-position:bottom;
+  /* background-image: url(swe1.jpg);
+  background-position:bottom;  */
 
   /*background: rgb(2,0,36);
   background: radial-gradient(circle,rgba(2,0,36,1) 0%,rgba(0,212,255,1) 0%,rgba(9,9,121,1) 100%);*/
@@ -112,10 +112,20 @@ opacity:0.9 ;
 }
 
 .Button{
+    display: inline-block;
     color:black;
-    margin-top: 30px;
-    margin-left:630px;
+    margin-top: 50px;
+    margin-left:530px;
     width:15%;}
+
+.Button1{
+      display: inline-block;
+      color:black;
+      margin-top: 50px;
+      margin-left:530px;
+      width:15%;}
+
+
 
 
 

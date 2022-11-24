@@ -17,6 +17,12 @@ export default function Header() {
                 <li class="main-nav__item main-nav__item--cta">
                 <Link to="/form">Add Place</Link>
                 </li>
+                <li class="main-nav__item main-nav__item--cta">
+                <a class ="Allplace" href='/HostDashboard'> 
+                 All Place
+                </a> 
+                </li> 
+
                 <li class="main-nav__item ">
                 <Link to="/form">Log out</Link>
                 </li>

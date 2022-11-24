@@ -45,6 +45,7 @@ export default function Form() {
       setPlacename('')
       setPrice('')
       setdescription('')
+      
   };
 
 
@@ -74,7 +75,9 @@ export default function Form() {
   return (
     <>
       <div data-testid="comps" className="container">
-        <form className="form" >
+        {/* <a href='/HostDashboard'><button>All</button></a>  */}
+       
+        <form className="form"  >
           <h1>My Form</h1>
 
           <div className="divider">
@@ -137,16 +140,18 @@ export default function Form() {
               />
             </div>
           </div>
-
+          
           <div className="Button">
             {/* <button className='ui button blue' onClick={addPlace}>Submit</button> */}
-            <Link to="/HostDashboard">
             <button className=" fluid ui button blue" type="submit" onClick={addPlace}>
             Submit
             </button>
-            </Link>
           </div>
+         
         </form>
+        <div className="Button1">
+        <a className=" fluid ui button transparent" href='/'>Back</a>
+        </div>
       </div>
     </>
   );
