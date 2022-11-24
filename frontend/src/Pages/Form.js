@@ -78,7 +78,7 @@ export default function Form() {
         {/* <a href='/HostDashboard'><button>All</button></a>  */}
        
         <form className="form"  >
-          <h1>My Form</h1>
+          <h1>Add Place Form</h1>
 
           <div className="divider">
             <div className="field">

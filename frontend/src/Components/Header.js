@@ -24,7 +24,7 @@ export default function Header() {
                 </li> 
 
                 <li class="main-nav__item ">
-                <Link to="/form">Log out</Link>
+                <Link to="/">Log out</Link>
                 </li>
             </ul>
         </nav>

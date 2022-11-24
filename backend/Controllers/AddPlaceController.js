@@ -18,8 +18,6 @@ exports.createPlace = async(req,res)=>{
         description
     })
 
-    
-
     places.save().then(result=>{
         console.log('Posted');
         res.status(200).json("done added"+result)
@@ -32,7 +30,7 @@ exports.createPlace = async(req,res)=>{
 exports.allPlaces=(req,res)=> {
     placesmodel.find().then(place=>{
         res.status(200).json({
-            "place":place
+            'place':place
         })
     }).catch(err=>{
         console.log(err);
