@@ -7,23 +7,23 @@ export default function Header() {
   
   return (
     <div data-testid="comps" className='header'>
-    <header class="main-header">
+    <header className="main-header">
         <div>
-         <img className='logo' src="./images/logo.jpg" alt=""/>
+         <img data-testid="headerimage" className='logo' src="./images/logo.jpg" alt=""/>
         </div>
 
-        <nav class="main-nav">
-            <ul class="main-nav__items">
-                <li class="main-nav__item main-nav__item--cta">
+        <nav className="main-nav">
+            <ul  className="main-nav__items">
+                <li data-testid="addplace" className="main-nav__item main-nav__item--cta">
                 <Link to="/form">Add Place</Link>
                 </li>
-                <li class="main-nav__item main-nav__item--cta">
-                <a class ="Allplace" href='/HostDashboard'> 
+                <li data-testid="allplace" className="main-nav__item main-nav__item--cta">
+                <a  className ="Allplace" href='/HostDashboard'> 
                  All Place
                 </a> 
                 </li> 
 
-                <li class="main-nav__item ">
+                <li className="main-nav__item ">
                 <Link to="/">Log out</Link>
                 </li>
             </ul>

@@ -74,6 +74,7 @@ export default function Form() {
   
   return (
     <>
+    
       <div data-testid="comps" className="container">
         {/* <a href='/HostDashboard'><button>All</button></a>  */}
        
@@ -81,7 +82,7 @@ export default function Form() {
           <h1>Add Place Form</h1>
 
           <div className="divider">
-            <div className="field">
+            <div data-testid="image" className="field">
               <label>Add Imageurl</label>
               {}
               {}
@@ -94,7 +95,7 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="field3">Description</label>
+              <label data-testid="description" className="field3">Description</label>
               <input className="field2"
                 type="description"
                 name="description"
@@ -109,7 +110,7 @@ export default function Form() {
             <div className="container">
 
 
-            <label>PlaceName</label>
+            <label data-testid="placename">PlaceName</label>
               <input
                 type="PlaceName"
                 name="PlaceName"
@@ -119,7 +120,7 @@ export default function Form() {
                 className="field1"
               />
 
-              <label>Number of Rooms</label>
+              <label data-testid="noofrooms">Number of Rooms</label>
               <input
                 type="No of Rooms"
                 name="Rooms"
@@ -129,7 +130,7 @@ export default function Form() {
                 className="field1"
               />
 
-              <label>Price</label>
+              <label data-testid="price">Price</label>
               <input
                 type="Price"
                 name="price"

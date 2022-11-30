@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react'
 import Header from '../Components/Header'
 import "./HostDashboard.css";
+import axios from "axios";
 //import PlaceItem from '../Components/PlaceItem';
 // import places from '../../../backend/Models/AddPlaceModel';
    
@@ -33,21 +34,35 @@ console.log(listOfPlaces)
          
           <div className='back'>
           <h4 className='image'>
-            <img className='image' src={place.imageurl}></img> 
+            <img data-testid="headerimage" className='image' src={place.imageurl}></img> 
             </h4>
-            <p className='styling1'>
+            <p data-testid="description" className='styling1'>
             {place.description}
           </p>
-           <h3 className='styling2'> 
+           <h3 data-testid="placenames" className='styling2'> 
            {place.placename}
            </h3>
-           <p className='styling3'> Rooms {place.numberofrooms}  
+           <p data-testid="numberofrooms" className='styling3'>
+            {place.numberofrooms}  
            </p>
-           <p className='styling4'> ${place.price} 
+           <p data-testid="price" className='styling4'>
+            {place.price} 
            </p> 
            
-         <a className="pure-button" href="#">Update</a>
-         <a class="pure-buttons" href="#">Delete</a>
+         <a className="pure-button" href="#" onClick={ async()=>{
+          (await axios.update(`http://localhost:8000/host/update/${place._id}`))
+          .then(alert(''))
+          .catch((error)=> 
+          console.log(error));}}
+           >Update</a>
+
+         <a class="pure-buttons" href="#" onClick={ async()=>{
+          (await axios.delete(`http://localhost:8000/host/delete/${place._id}`))
+          .then(alert('Deleted'))
+          .catch((error)=> 
+          console.log(error));
+         }}>Delete</a>
+
          </div>
        }
           
